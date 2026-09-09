@@ -9,7 +9,7 @@ from about import about_page
 from analytics import analytics_page
 from prediction import prediction_page
 from styles import load_css
-MODEL-REPO = "Arshu-08/traffiq-model"
+MODEL_REPO = "Arshu-08/traffiq-model"
 
 
 st.set_page_config(
