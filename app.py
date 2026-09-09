@@ -4,11 +4,16 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 from streamlit_option_menu import option_menu
-
+from huggingface_hub import hf_hub_download
 from about import about_page
 from analytics import analytics_page
 from prediction import prediction_page
 from styles import load_css
+MODEL-REPO = "Arshu-08/traffiq-model"
+model_path = hf_hub_download(
+    repo_id=MODEL_REPO,
+    filename="Traffic_Congestion_RF_Model.pkl"
+)
 
 st.set_page_config(
     page_title="TraffiQ",
