@@ -10,10 +10,7 @@ from analytics import analytics_page
 from prediction import prediction_page
 from styles import load_css
 MODEL-REPO = "Arshu-08/traffiq-model"
-model_path = hf_hub_download(
-    repo_id=MODEL_REPO,
-    filename="Traffic_Congestion_RF_Model.pkl"
-)
+
 
 st.set_page_config(
     page_title="TraffiQ",
@@ -53,11 +50,11 @@ def load_app_data():
             }
         )
 
-    rf = (
-        joblib.load("Traffic_Congestion_RF_Model.pkl")
-        if os.path.exists("Traffic_Congestion_RF_Model.pkl")
-        else None
+    model_path = hf_hub_download(
+    repo_id=MODEL_REPO,
+    filename="Traffic_Congestion_RF_Model.pkl"
     )
+    rf=joblib.load(model_path)
     
     encoders = None
 
